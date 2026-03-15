@@ -1,6 +1,5 @@
 package moe.shizuku.manager.starter
 
-import moe.shizuku.manager.patch.Util
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -37,8 +36,7 @@ class StarterActivity : AppBarActivity() {
             this,
             intent.getBooleanExtra(EXTRA_IS_ROOT, true),
             intent.getStringExtra(EXTRA_HOST),
-            intent.getIntExtra(EXTRA_PORT, 0),
-            intent.getBooleanExtra(EXTRA_IS_SYSTEM, true)
+            intent.getIntExtra(EXTRA_PORT, 0)
         )
     }
 
@@ -100,11 +98,10 @@ class StarterActivity : AppBarActivity() {
         const val EXTRA_IS_ROOT = "$EXTRA.IS_ROOT"
         const val EXTRA_HOST = "$EXTRA.HOST"
         const val EXTRA_PORT = "$EXTRA.PORT"
-        const val EXTRA_IS_SYSTEM = "$EXTRA.IS_SYSTEM"
     }
 }
 
-private class ViewModel(context: Context, root: Boolean, host: String?, port: Int, system: Boolean) : androidx.lifecycle.ViewModel() {
+private class ViewModel(context: Context, root: Boolean, host: String?, port: Int) : androidx.lifecycle.ViewModel() {
 
     private val sb = StringBuilder()
     private val _output = MutableLiveData<Resource<StringBuilder>>()
@@ -113,9 +110,7 @@ private class ViewModel(context: Context, root: Boolean, host: String?, port: In
 
     init {
         try {
-            if (system) {
-                startSystem(context)
-            } else if (root) {
+            if (root) {
                 startRoot()
             } else {
                 startAdb(host!!, port)
@@ -196,22 +191,6 @@ private class ViewModel(context: Context, root: Boolean, host: String?, port: In
                 sb.append('\n').append(Log.getStackTraceString(it))
                 postResult(it)
             }
-        }
-    }
-    
-    private fun startSystem(Context context) {
-        sb.append("Starting with CVE-2024-31317 poc...").append('\n').append('\n')
-        postResult()
-
-        GlobalScope.launch(Dispatchers.IO) {
-            try {
-                sb.append(Util.startSysShizuku(context))
-            } catch (e: Throwable) {
-                sb.append("Can not use CVE-2024-31317 poc : (")append('\n').append('\n')
-                postResult(e)
-                return@launch
-            }
-            postResult()
         }
     }
 }
