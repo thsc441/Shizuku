@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import moe.shizuku.manager.Helps
 import moe.shizuku.manager.R
 import moe.shizuku.manager.databinding.HomeItemContainerBinding
-import moe.shizuku.manager.databinding.HomeStartRootBinding
+import moe.shizuku.manager.databinding.HomeStartSystemBinding
 import moe.shizuku.manager.ktx.toHtml
 import moe.shizuku.manager.starter.StarterActivity
 import rikka.html.text.HtmlCompat
@@ -17,13 +17,13 @@ import rikka.recyclerview.BaseViewHolder
 import rikka.recyclerview.BaseViewHolder.Creator
 import rikka.shizuku.Shizuku
 
-class StartSystemViewHolder(private val binding: HomeStartRootBinding, root: View) :
+class StartSystemViewHolder(private val binding: HomeStartSystemBinding, root: View) :
     BaseViewHolder<Boolean>(root) {
 
     companion object {
         val CREATOR = Creator<Boolean> { inflater: LayoutInflater, parent: ViewGroup? ->
             val outer = HomeItemContainerBinding.inflate(inflater, parent, false)
-            val inner = HomeStartRootBinding.inflate(inflater, outer.root, true)
+            val inner = HomeStartSystemBinding.inflate(inflater, outer.root, true)
             StartSystemViewHolder(inner, outer.root)
         }
     }
@@ -66,17 +66,8 @@ class StartSystemViewHolder(private val binding: HomeStartRootBinding, root: Vie
                     R.string.home_system_description
                 )
             )
-        if (Shizuku.pingBinder()) {
-            sb.append("<p>").append(
-                context.getString(
-                    R.string.home_root_description_sui,
-                    "<b><a href=\"${Helps.SUI.get()}\">Sui</a></b>",
-                    "Sui"
-                )
-            )
-        }
 
-        binding.text1.text = sb.toHtml(HtmlCompat.FROM_HTML_OPTION_TRIM_WHITESPACE)
+        binding.text1.text = sb.toString()
     }
 
     override fun onRecycle() {

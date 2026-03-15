@@ -65,10 +65,9 @@
     <string name="home_root_button_restart">Restart</string>
     
     <!-- Home - System -->
-    
     <string name="home_system_title"><![CDATA[Start (for CVE-2024-31317 devices)]]></string>
     <string name="home_system_description"><![CDATA[In fact, for devices that can use the CVE-2024-31317 vulnerability to escalate privileges, it is possible to use privilege escalation to allow Shizuku to operate with System permissions.]]></string>
-    <string name="home_system_description_sui"><![CDATA[If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shizuku. Note, existing applications needs to change a little to use %2$s.]]></string>
+    <!--<string name="home_system_description_sui"><![CDATA[If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shizuku. Note, existing applications needs to change a little to use %2$s.]]></string>-->
     <string name="home_system_button_start">Start</string>
     <string name="home_system_button_restart">Restart</string>
 

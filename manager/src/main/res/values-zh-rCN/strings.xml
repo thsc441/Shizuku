@@ -128,4 +128,11 @@
     <string name="home_app_management_empty">已请求或声明 Shizuku 的应用程序将显示在此处。</string>
     <string name="home_adb_is_limited_title">您需要进行额外的步骤</string>
     <string name="home_adb_is_limited_description">您的设备制造商限制了 adb 的权限，使用 Shizuku 的应用无法正常工作。\n\n通常，在“开发者选项”中调整一些选项即可解除此限制。请阅读帮助来了解具体的操作方式。\n\n您可能需要重新启动 Shizuku 以使操作生效。</string>
+    
+    <!-- Home - 系统 -->
+    <string name="home_system_title"><![CDATA[启动 (针对 CVE-2024-31317 设备)]]></string>
+    <string name="home_system_description"><![CDATA[事实上，对于可以利用 CVE-2024-31317 漏洞提升权限的设备，可以使用权限提升让 Shizuku 以系统权限运行。]]></string>
+    <!--<string name="home_system_description_sui"><![CDATA[If you are using Magisk, you can try %1$s. For root users, it will eventually replace Shizuku. Note, existing applications needs to change a little to use %2$s.]]></string>-->
+    <string name="home_system_button_start">启动</string>
+    <string name="home_system_button_restart">重启</string>
 </resources>
