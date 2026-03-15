@@ -38,7 +38,7 @@ class StarterActivity : AppBarActivity() {
             intent.getBooleanExtra(EXTRA_IS_ROOT, true),
             intent.getStringExtra(EXTRA_HOST),
             intent.getIntExtra(EXTRA_PORT, 0),
-            intent.getBooleanExtra(EXTRA_IS_SYSTEM, true)
+            intent.getBooleanExtra(EXTRA_IS_SYSTEM, false)
         )
     }
 

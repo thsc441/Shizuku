@@ -66,7 +66,7 @@ class HomeAdapter(private val homeModel: HomeViewModel, private val appsModel: A
 
             addItem(StartAdbViewHolder.CREATOR, null, ID_START_ADB)
             
-            addItem(StartSystemViewHolder.CREATOR, null, ID_START_SYSTEM)
+            addItem(StartSystemViewHolder.CREATOR, false, ID_START_SYSTEM)
 
             if (!root) {
                 addItem(StartRootViewHolder.CREATOR, rootRestart, ID_START_ROOT)
