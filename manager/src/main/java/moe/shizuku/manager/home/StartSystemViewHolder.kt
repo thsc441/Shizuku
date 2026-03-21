@@ -69,7 +69,7 @@ class StartSystemViewHolder(private val binding: HomeStartSystemBinding, root: V
             )
             
         if (!Util.canUsePoc()) {
-            sb.append("<p>").sb.append(
+            sb.append("<p>").append(
                 context.getString(
                     R.string.home_system_description_warn
                 )
