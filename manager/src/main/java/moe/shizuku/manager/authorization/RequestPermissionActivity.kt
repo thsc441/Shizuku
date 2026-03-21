@@ -121,7 +121,7 @@ class RequestPermissionActivity : AppActivity() {
                 dialog.dismiss()
             }
             title.text = HtmlCompat.fromHtml(getString(R.string.permission_warning_template,
-                    label, getString(R.string.permission_group_description)))
+                    label, getString(R.string.permission_group_description) + "(" + Shizuku.getUid() + ")"))
         }
 
         dialog = MaterialAlertDialogBuilder(this)
